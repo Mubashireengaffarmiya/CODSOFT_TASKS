@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rainBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(148, 163, 184, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(148, 163, 184, 0.8)"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="500" rx="24" fill="url(#rainBg)"/>
+  <!-- Bokeh circles -->
+  <circle cx="100" cy="180" r="45" fill="#3b82f6" opacity="0.25" filter="blur(8px)"/>
+  <circle cx="380" cy="220" r="55" fill="#a855f7" opacity="0.2" filter="blur(10px)"/>
+  <circle cx="260" cy="140" r="35" fill="#06b6d4" opacity="0.2" filter="blur(6px)"/>
+  <circle cx="190" cy="310" r="50" fill="#ec4899" opacity="0.18" filter="blur(10px)"/>
+  <circle cx="340" cy="340" r="40" fill="#eab308" opacity="0.15" filter="blur(8px)"/>
+
+  <!-- Rain streaks -->
+  <line x1="60" y1="40" x2="40" y2="110" stroke="url(#dropGrad)" stroke-width="2"/>
+  <line x1="150" y1="20" x2="130" y2="130" stroke="url(#dropGrad)" stroke-width="1.5"/>
+  <line x1="220" y1="50" x2="200" y2="150" stroke="url(#dropGrad)" stroke-width="2.5"/>
+  <line x1="310" y1="30" x2="290" y2="120" stroke="url(#dropGrad)" stroke-width="1.5"/>
+  <line x1="420" y1="40" x2="400" y2="140" stroke="url(#dropGrad)" stroke-width="2"/>
+  
+  <line x1="90" y1="180" x2="70" y2="280" stroke="url(#dropGrad)" stroke-width="2"/>
+  <line x1="170" y1="200" x2="150" y2="300" stroke="url(#dropGrad)" stroke-width="1.5"/>
+  <line x1="280" y1="190" x2="260" y2="290" stroke="url(#dropGrad)" stroke-width="2.5"/>
+  <line x1="390" y1="210" x2="370" y2="320" stroke="url(#dropGrad)" stroke-width="2"/>
+  
+  <line x1="120" y1="330" x2="100" y2="420" stroke="url(#dropGrad)" stroke-width="1.5"/>
+  <line x1="240" y1="320" x2="220" y2="430" stroke="url(#dropGrad)" stroke-width="2"/>
+  <line x1="350" y1="340" x2="330" y2="440" stroke="url(#dropGrad)" stroke-width="2"/>
+
+  <!-- Water drops on glass -->
+  <circle cx="180" cy="180" r="5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="210" cy="240" r="7" fill="#ffffff" opacity="0.5"/>
+  <circle cx="310" cy="160" r="4" fill="#ffffff" opacity="0.7"/>
+  <circle cx="280" cy="270" r="6" fill="#ffffff" opacity="0.6"/>
+  <circle cx="140" cy="290" r="5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="370" cy="280" r="4" fill="#ffffff" opacity="0.6"/>
+
+  <!-- Central Emblem -->
+  <circle cx="250" cy="230" r="65" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.7"/>
+  <path d="M250,185 C230,215 220,240 250,265 C280,240 270,215 250,185 Z" fill="#38bdf8" opacity="0.8"/>
+
+  <!-- Title -->
+  <text x="250" y="380" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="24" fill="#f8fafc" letter-spacing="4">MIDNIGHT RAIN</text>
+  <text x="250" y="405" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="13" fill="#94a3b8" letter-spacing="3">AMBIENT ACOUSTIC ESCAPE</text>
+</svg>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpendWise - A modern personal expense tracking application. Track income, monitor expenses, and gain financial clarity.">
+    <title>SpendWise | CodSoft Task 3 Expense Tracker</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-container">
+                <div class="brand">
+                    <div class="logo-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <h1 class="app-title">SpendWise<span>.</span></h1>
+                        <p class="app-subtitle">Personal Finance &amp; Expense Tracker</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <!-- Theme Toggle -->
+                    <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Switch theme">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.07" x2="5.64" y2="17.64"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Summary Cards Section -->
+            <section class="summary-section" aria-label="Financial Summary Cards">
+                <!-- Current Balance Card -->
+                <div class="summary-card balance-card">
+                    <div class="summary-icon balance-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <line x1="6" y1="12" x2="18" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div class="summary-details">
+                        <span class="summary-label">Current Balance</span>
+                        <span class="summary-amount" id="totalBalance">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Total Income Card -->
+                <div class="summary-card income-card">
+                    <div class="summary-icon income-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="summary-details">
+                        <span class="summary-label">Total Income</span>
+                        <span class="summary-amount" id="totalIncome">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Total Expenses Card -->
+                <div class="summary-card expense-card">
+                    <div class="summary-icon expense-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="summary-details">
+                        <span class="summary-label">Total Expenses</span>
+                        <span class="summary-amount" id="totalExpenses">$0.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grid: Add Transaction Form & Transaction History -->
+            <div class="content-grid">
+                <!-- Left Column: Add Transaction Card -->
+                <section class="form-section" aria-labelledby="formTitle">
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h2 id="formTitle" class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                                Add Transaction
+                            </h2>
+                        </div>
+
+                        <form id="transactionForm" novalidate>
+                            <!-- Type Toggle: Expense vs Income -->
+                            <div class="form-group">
+                                <label class="form-label">Transaction Type</label>
+                                <div class="type-toggle-group" role="radiogroup" aria-label="Transaction Type">
+                                    <button type="button" class="type-toggle-btn active-expense" id="btnTypeExpense" data-type="expense" role="radio" aria-checked="true">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <polyline points="19 12 12 19 5 12"></polyline>
+                                        </svg>
+                                        Expense
+                                    </button>
+                                    <button type="button" class="type-toggle-btn" id="btnTypeIncome" data-type="income" role="radio" aria-checked="false">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                                            <polyline points="5 12 12 5 19 12"></polyline>
+                                        </svg>
+                                        Income
+                                    </button>
+                                </div>
+                                <input type="hidden" id="transactionType" value="expense">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group">
+                                <label for="txDescription" class="form-label">Description <span class="required-star">*</span></label>
+                                <input type="text" id="txDescription" class="form-input" placeholder="e.g. Grocery shopping, Freelance payment" maxlength="100" required>
+                                <span class="error-message" id="descError">Description is required.</span>
+                            </div>
+
+                            <!-- Amount -->
+                            <div class="form-group">
+                                <label for="txAmount" class="form-label">Amount ($) <span class="required-star">*</span></label>
+                                <div class="amount-input-wrapper">
+                                    <span class="currency-prefix">$</span>
+                                    <input type="number" id="txAmount" class="form-input amount-input" placeholder="0.00" step="0.01" min="0.01" required>
+                                </div>
+                                <span class="error-message" id="amountError">Please enter a valid amount greater than $0.</span>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="form-group">
+                                <label for="txCategory" class="form-label">Category</label>
+                                <select id="txCategory" class="form-select">
+                                    <!-- Populated dynamically based on type -->
+                                </select>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="form-group">
+                                <label for="txDate" class="form-label">Date <span class="required-star">*</span></label>
+                                <input type="date" id="txDate" class="form-input" required>
+                                <span class="error-message" id="dateError">Date is required.</span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-block" id="addTxBtn">
+                                Add Transaction
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Right Column: Transaction History & Controls -->
+                <section class="history-section" aria-labelledby="historyTitle">
+                    <div class="card history-card">
+                        <div class="history-header">
+                            <div>
+                                <h2 id="historyTitle" class="card-title">Transaction History</h2>
+                                <span class="history-sub" id="historyCounter">Showing 0 transactions</span>
+                            </div>
+                        </div>
+
+                        <!-- Controls: Search, Type Tabs & Category Filter -->
+                        <div class="history-controls">
+                            <!-- Search -->
+                            <div class="search-box">
+                                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <input type="search" id="historySearch" class="search-input" placeholder="Search transactions..." aria-label="Search transactions">
+                                <button type="button" id="clearSearchBtn" class="clear-search-btn" aria-label="Clear search">✕</button>
+                            </div>
+
+                            <!-- Filter Tabs -->
+                            <div class="history-tabs" role="tablist">
+                                <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+                                <button class="filter-tab" data-filter="income" role="tab" aria-selected="false">Income</button>
+                                <button class="filter-tab" data-filter="expense" role="tab" aria-selected="false">Expenses</button>
+                            </div>
+
+                            <!-- Category & Sort Dropdowns -->
+                            <div class="filter-dropdowns">
+                                <div class="dropdown-group">
+                                    <label for="filterCategorySelect" class="dropdown-label">Category:</label>
+                                    <select id="filterCategorySelect" class="dropdown-select">
+                                        <option value="all">All Categories</option>
+                                    </select>
+                                </div>
+
+                                <div class="dropdown-group">
+                                    <label for="sortBySelect" class="dropdown-label">Sort:</label>
+                                    <select id="sortBySelect" class="dropdown-select">
+                                        <option value="dateDesc">Newest First</option>
+                                        <option value="dateAsc">Oldest First</option>
+                                        <option value="amountHigh">Amount (High to Low)</option>
+                                        <option value="amountLow">Amount (Low to High)</option>
+                                    </select>
+                                </div>
+
+                                <button id="resetFiltersBtn" class="btn btn-secondary btn-sm" title="Reset all filters">Reset</button>
+                            </div>
+                        </div>
+
+                        <!-- Transactions List Container -->
+                        <div class="transaction-list" id="transactionList" role="list">
+                            <!-- Transactions populated dynamically -->
+                        </div>
+
+                        <!-- Empty State -->
+                        <div class="empty-state hidden" id="emptyState">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <line x1="6" y1="12" x2="18" y2="12"></line>
+                            </svg>
+                            <h3 class="empty-title">No transactions found</h3>
+                            <p class="empty-desc">Add a new transaction or adjust your search and filters.</p>
+                            <button id="emptyResetBtn" class="btn btn-primary btn-sm">Reset Filters</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>CodSoft Frontend Development Internship &copy; 2026 — Task 3: Expense Tracker | Built with HTML5, CSS3 &amp; Vanilla JavaScript</p>
+        </footer>
+    </div>
+
+    <!-- Edit Transaction Modal -->
+    <div id="editModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="editModalTitle" class="modal-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Edit Transaction
+                </h3>
+                <button type="button" class="modal-close-btn" id="closeEditModalBtn" aria-label="Close edit modal">✕</button>
+            </div>
+
+            <form id="editTxForm" novalidate>
+                <input type="hidden" id="editTxId">
+
+                <div class="form-group">
+                    <label class="form-label">Transaction Type</label>
+                    <div class="type-toggle-group">
+                        <button type="button" class="type-toggle-btn" id="editBtnTypeExpense" data-type="expense">Expense</button>
+                        <button type="button" class="type-toggle-btn" id="editBtnTypeIncome" data-type="income">Income</button>
+                    </div>
+                    <input type="hidden" id="editTransactionType">
+                </div>
+
+                <div class="form-group">
+                    <label for="editTxDescription" class="form-label">Description <span class="required-star">*</span></label>
+                    <input type="text" id="editTxDescription" class="form-input" maxlength="100" required>
+                    <span class="error-message" id="editDescError">Description is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="editTxAmount" class="form-label">Amount ($) <span class="required-star">*</span></label>
+                    <div class="amount-input-wrapper">
+                        <span class="currency-prefix">$</span>
+                        <input type="number" id="editTxAmount" class="form-input amount-input" step="0.01" min="0.01" required>
+                    </div>
+                    <span class="error-message" id="editAmountError">Please enter a valid amount greater than $0.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="editTxCategory" class="form-label">Category</label>
+                    <select id="editTxCategory" class="form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editTxDate" class="form-label">Date <span class="required-star">*</span></label>
+                    <input type="date" id="editTxDate" class="form-input" required>
+                    <span class="error-message" id="editDateError">Date is required.</span>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+        <div class="modal-card modal-sm">
+            <div class="modal-header">
+                <div class="modal-icon-danger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 id="deleteModalTitle" class="modal-title">Delete Transaction?</h3>
+                    <p class="modal-subtitle">Are you sure you want to remove this transaction? This action cannot be undone.</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

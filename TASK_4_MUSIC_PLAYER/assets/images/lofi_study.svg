@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="rgba(251, 191, 36, 0.4)"/>
+      <stop offset="70%" stop-color="rgba(251, 191, 36, 0.05)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" rx="24" fill="url(#bgGrad2)"/>
+  <circle cx="250" cy="220" r="180" fill="url(#lampGlow)"/>
+  <!-- Window frame -->
+  <rect x="100" y="80" width="300" height="230" rx="16" fill="#0f172a" stroke="#4338ca" stroke-width="4"/>
+  <!-- Moon in window -->
+  <circle cx="200" cy="150" r="35" fill="#fef08a" filter="drop-shadow(0 0 15px rgba(254, 240, 138, 0.5))"/>
+  <circle cx="212" cy="142" r="30" fill="#0f172a"/>
+  <!-- Stars -->
+  <circle cx="140" cy="120" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="280" cy="130" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="340" cy="110" r="2" fill="#ffffff" opacity="0.7"/>
+  <circle cx="320" cy="180" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <!-- Window mullions -->
+  <line x1="250" y1="80" x2="250" y2="310" stroke="#4338ca" stroke-width="3"/>
+  <line x1="100" y1="195" x2="400" y2="195" stroke="#4338ca" stroke-width="3"/>
+  <!-- Desk surface -->
+  <rect x="50" y="320" width="400" height="130" rx="8" fill="#1e293b"/>
+  <!-- Books on desk -->
+  <rect x="90" y="380" width="90" height="24" rx="4" fill="#ec4899"/>
+  <rect x="95" y="356" width="80" height="24" rx="4" fill="#3b82f6"/>
+  <rect x="105" y="335" width="65" height="21" rx="4" fill="#10b981"/>
+  <!-- Coffee mug -->
+  <rect x="235" y="350" width="34" height="42" rx="6" fill="#f8fafc"/>
+  <path d="M269,360 C280,360 280,376 269,376" fill="none" stroke="#f8fafc" stroke-width="4"/>
+  <!-- Steam from coffee -->
+  <path d="M245,340 Q240,328 247,318 Q254,308 248,298" fill="none" stroke="#e2e8f0" stroke-width="2" opacity="0.6"/>
+  <path d="M255,340 Q262,328 255,318 Q248,308 256,298" fill="none" stroke="#e2e8f0" stroke-width="2" opacity="0.6"/>
+  <!-- Headphones on desk -->
+  <path d="M315,360 C315,335 365,335 365,360" fill="none" stroke="#a855f7" stroke-width="6"/>
+  <rect x="308" y="355" width="14" height="28" rx="6" fill="#a855f7"/>
+  <rect x="358" y="355" width="14" height="28" rx="6" fill="#a855f7"/>
+  <!-- Title text -->
+  <text x="250" y="468" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="20" fill="#f8fafc" letter-spacing="3">LO-FI STUDY BEATS</text>
+</svg>

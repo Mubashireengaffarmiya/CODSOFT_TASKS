@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevChronicles - A modern frontend, JavaScript, and UI/UX design publication for developers.">
+    <title>DevChronicles | CodSoft Task 5 Blog</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar-wrapper">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-badge" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">DevChronicles<span>.</span></span>
+                    <span class="brand-sub">Frontend &amp; Engineering</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#articlesSection" class="nav-link">Articles</a>
+                <a href="#categoriesSection" class="nav-link">Categories</a>
+                <a href="#newsletterSection" class="nav-link">Newsletter</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button id="themeToggleBtn" class="btn-theme-toggle" aria-label="Toggle dark mode" title="Switch theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.07" x2="5.64" y2="17.64"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+        <!-- Hero Section: Featured Article -->
+        <section class="hero-section" id="heroSection" aria-label="Featured Story">
+            <div class="hero-card" id="heroArticleCard">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- Search & Category Filters Bar -->
+        <section class="filters-section" id="categoriesSection" aria-label="Article search and filter controls">
+            <div class="search-bar-container">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input 
+                        type="search" 
+                        id="blogSearchInput" 
+                        class="search-input" 
+                        placeholder="Search articles by title, tags, or content..."
+                        aria-label="Search articles"
+                    >
+                    <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear search">✕</button>
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="category-pills" id="categoryPills" role="tablist" aria-label="Categories">
+                <button class="cat-pill active" data-category="all" role="tab" aria-selected="true">All Topics</button>
+                <button class="cat-pill" data-category="Frontend" role="tab" aria-selected="false">Frontend</button>
+                <button class="cat-pill" data-category="JavaScript" role="tab" aria-selected="false">JavaScript</button>
+                <button class="cat-pill" data-category="UI/UX Design" role="tab" aria-selected="false">UI/UX Design</button>
+                <button class="cat-pill" data-category="Web Performance" role="tab" aria-selected="false">Web Performance</button>
+                <button class="cat-pill" data-category="Career" role="tab" aria-selected="false">Career</button>
+            </div>
+        </section>
+
+        <!-- Articles Grid Section -->
+        <section class="articles-section" id="articlesSection" aria-label="Latest Articles">
+            <div class="section-header">
+                <h2 class="section-title">Latest Publications</h2>
+                <span class="section-counter" id="articleCountText">Showing 0 articles</span>
+            </div>
+
+            <!-- Grid of Blog Cards -->
+            <div class="blog-grid" id="blogGrid" role="list">
+                <!-- Blog cards rendered dynamically -->
+            </div>
+
+            <!-- Empty Search/Filter State -->
+            <div class="empty-state hidden" id="emptyState">
+                <div class="empty-state-icon" aria-hidden="true">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <h3 class="empty-title">No articles found</h3>
+                <p class="empty-desc">We couldn't find any articles matching your search or active filter. Try resetting your query.</p>
+                <button id="resetFiltersBtn" class="btn btn-primary btn-sm">Reset All Filters</button>
+            </div>
+
+            <!-- Load More / Pagination -->
+            <div class="load-more-container" id="loadMoreContainer">
+                <button id="loadMoreBtn" class="btn btn-secondary">
+                    Load More Articles
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Newsletter Subscription Section -->
+        <section class="newsletter-section" id="newsletterSection" aria-label="Newsletter">
+            <div class="newsletter-card">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Subscribe to the Frontend Dispatch</h2>
+                    <p class="newsletter-desc">Get weekly curated insights on modern CSS, JavaScript performance, UI architecture, and engineering leadership directly in your inbox.</p>
+                    <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Weekly dispatches are on the way.'); this.reset();">
+                        <input type="email" placeholder="Enter your email address..." required class="newsletter-input" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <span class="newsletter-subtext">Zero spam. Unsubscribe at any time.</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand">
+                        <div class="brand-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="brand-name">DevChronicles<span>.</span></span>
+                    </a>
+                    <p class="footer-tagline">Crafting modern frontend experiences with rigorous engineering principles.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4 class="footer-heading">Categories</h4>
+                    <ul class="footer-list">
+                        <li><a href="#articlesSection" data-cat="Frontend">Frontend Development</a></li>
+                        <li><a href="#articlesSection" data-cat="JavaScript">JavaScript &amp; Node</a></li>
+                        <li><a href="#articlesSection" data-cat="UI/UX Design">UI/UX Architecture</a></li>
+                        <li><a href="#articlesSection" data-cat="Web Performance">Web Performance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4 class="footer-heading">CodSoft Tasks</h4>
+                    <ul class="footer-list">
+                        <li><a href="../TASK_1_PORTFOLIO/index.html">Task 1: Portfolio</a></li>
+                        <li><a href="../TASK_2_TODO/index.html">Task 2: To-Do App</a></li>
+                        <li><a href="../TASK_3_EXPENSE_TRACKER/index.html">Task 3: Expense Tracker</a></li>
+                        <li><a href="../TASK_4_MUSIC_PLAYER/index.html">Task 4: Music Player</a></li>
+                        <li><a href="index.html">Task 5: Blog Website</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>CodSoft Frontend Development Internship &copy; 2026 — Task 5: Blog Website | Built with Vanilla HTML5, CSS3 &amp; JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="blogToast" class="blog-toast" aria-live="polite"></div>
+
+    <!-- Data & Script -->
+    <script src="data/posts.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
